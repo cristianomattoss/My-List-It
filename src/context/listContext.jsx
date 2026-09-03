@@ -1,13 +1,23 @@
 import { createContext, useReducer } from "react";
 
-const STAGE = ["Start"]
+const STAGES = ["START", "CREATE-LIST"]
 
 const initialState = {
-    AppStage: STAGE[0]
+    AppStage: STAGES[0]
 }
 
 const listReducer = (state, action) => {
-  pass
+    console.log("action:", action);
+    
+  switch(action.type) {
+    case "CREATE-LIST":
+      return {
+        ...state,
+        AppStage: STAGES[1],
+      }
+    default:
+      return state;
+  }
 };
 
 export const ListContext = createContext();
