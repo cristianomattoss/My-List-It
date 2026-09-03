@@ -1,13 +1,25 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './App.css'
 
-function App() {
+import { ListContext } from './context/listContext';
+import List from './components/List';
 
-  const listas = localStorage.getItem("nome_listas");
+function App() {
+  const [state, dispatch] = useContext(ListContext)
+
+  const listas = JSON.parse(localStorage.getItem("nome_listas") || "[]");
   
   return (
     <div>
-      Minhas Listas
+      <h1>Minhas Listas</h1>
+      <main className='lists-container'>
+        {(state.AppStage === "Start" && listas.length !== 0)
+          ? listas.map((lista) => (
+            <List key={lista.id} list={lista} value={5}></List>
+          ))
+          : <p className="empty-message">Nenhuma lista criada</p> 
+        }
+      </main>
       <button>Criar nova lista</button>
     </div>
   )
