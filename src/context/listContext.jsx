@@ -3,7 +3,7 @@ import { createContext, useReducer } from "react";
 const STAGE = ["Start"]
 
 const initialState = {
-    AppStage: initialState[0]
+    AppStage: STAGE[0]
 }
 
 const listReducer = (state, action) => {
