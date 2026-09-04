@@ -10,7 +10,7 @@ const Start = () => {
     const [, dispatch] = useContext(ListContext)
 
   return (
-    <div>
+    <div className='container'>
         <h1>Minhas Listas</h1>
         <main className='lists-container'>
         {(listas.length !== 0)
@@ -20,7 +20,7 @@ const Start = () => {
           : <p className="empty-message">Nenhuma lista criada</p> 
         }
       </main>
-      <button onClick={() => dispatch({type: "CREATE-LIST"})}>Criar nova lista</button>
+      <button className='start-list' onClick={() => dispatch({type: "CREATE-LIST"})}>Criar nova lista</button>
     </div>
   )
 }

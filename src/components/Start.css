@@ -1,15 +1,15 @@
-div {
+.container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  max-width: 800px;
-  min-height: 100vh;
+  max-width: 90%;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 h1 {
+  padding-top: 20px;
   margin-bottom: 30px;
 }
 
@@ -28,9 +28,10 @@ h1 {
   border-radius: 8px;
 }
 
-button {
-  margin-top: 25px;
+.start-list {
+  margin: 25px auto;
   padding: 12px 20px;
+  max-width: 150px;
   border: none;
   border-radius: 8px;
   background: #222;

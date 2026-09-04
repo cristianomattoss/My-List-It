@@ -1,5 +1,6 @@
 import { useState, useContext } from "react"
 import { ListContext } from "../context/listContext"
+import { FaPlus, FaTrash } from "react-icons/fa";
 
 import "./CreateList.css"
 
@@ -35,6 +36,7 @@ const CreateList = () => {
       const novaLista = [...lista, novoProduto]
       localStorage.setItem(listName, JSON.stringify(novaLista))
       setListProducts(novaLista)
+      setListNameProduct("")
     }
 
   return (
@@ -45,7 +47,7 @@ const CreateList = () => {
           onChange={(e) => changeListName(e)}
           disabled={listCreated}
         />
-        <button className="adicionar" onClick={() => insertName()} disabled={listCreated}>+</button>
+        <button className="adicionar" onClick={() => insertName()} disabled={listCreated}><FaPlus/></button>
       </div>
       <label htmlFor="nome-produto">Produto:</label>
       <div className="create-name">
@@ -53,13 +55,21 @@ const CreateList = () => {
           value={listNameProduct}
           onChange={(e) => changeProductName(e)}
         />
-        <button className="adicionar" onClick={() => addProduct()}>+</button>
+        <button className="adicionar" onClick={() => addProduct()}><FaPlus/></button>
       </div>
       <div className="list-container">
-          {listProducts.map((produto) => (
-            <p key={produto.id}>{produto.name}</p>
-          ))}
+        <h1>Lista: {listName}</h1>
+        {listProducts.map((produto) => (
+          <div className="product" key={produto.id}>
+            <input type="checkbox" />
+            <span>{produto.name}</span>
+            <button className="delete-product">
+              <FaTrash />
+            </button>
+          </div>
+        ))}
       </div>
+      <button className="finish-button" onClick={() => dispatch({ type: "START" })}>Concluir</button>
     </div>
   )
 }
