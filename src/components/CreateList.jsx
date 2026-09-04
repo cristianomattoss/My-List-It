@@ -4,6 +4,8 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 
 import "./CreateList.css"
 
+import List from "./List";
+
 const CreateList = () => {
     const [state, dispatch] = useContext(ListContext);
 
@@ -57,19 +59,10 @@ const CreateList = () => {
         />
         <button className="adicionar" onClick={() => addProduct()}><FaPlus/></button>
       </div>
-      <div className="list-container">
-        <h1>Lista: {listName}</h1>
-        {listProducts.map((produto) => (
-          <div className="product" key={produto.id}>
-            <input type="checkbox" />
-            <span>{produto.name}</span>
-            <button className="delete-product">
-              <FaTrash />
-            </button>
-          </div>
-        ))}
+      <div className="container-create-list">
+        {listCreated && <List list={listName} value={0} />}
       </div>
-      <button className="finish-button" onClick={() => dispatch({ type: "START" })}>Concluir</button>
+      {listCreated && <button className="finish-button" onClick={() => dispatch({ type: "START" })}>Concluir</button>}
     </div>
   )
 }
