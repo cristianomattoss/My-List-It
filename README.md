@@ -1,16 +1,45 @@
-# React + Vite
+# 🛒 Lista de Compras
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web para criação e gerenciamento de listas de compras, desenvolvida com React.
 
-Currently, two official plugins are available:
+O projeto foi desenvolvido com o objetivo de praticar conceitos de gerenciamento de estado e compartilhamento de dados entre componentes utilizando Context API e useReducer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Funcionalidades
 
-## React Compiler
+- Criar listas de compras
+- Adicionar produtos às listas
+- Visualizar produtos de uma lista
+- Visualizar uma lista completa
+- Marcar produtos como comprados
+- Limpar marcações dos produtos comprados
+- Excluir produtos
+- Persistência dos dados utilizando LocalStorage
+- Navegação entre as telas da aplicação
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologias
 
-## Expanding the ESLint configuration
+- React
+- JavaScript
+- Vite
+- Context API
+- useReducer
+- LocalStorage
+- CSS
+- React Icons
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Estrutura do projeto
+
+```text
+src/
+├── components/
+│   ├── CreateList.jsx
+│   ├── List.jsx
+│   ├── ListComplete.jsx
+│   └── Start.jsx
+│
+├── context/
+│   └── listContext.jsx
+│
+├── App.jsx
+├── App.css
+└── index.css
