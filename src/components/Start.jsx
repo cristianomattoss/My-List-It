@@ -6,16 +6,16 @@ import { ListContext } from '../context/listContext';
 import './Start.css'
 
 const Start = () => {
-    const listas = JSON.parse(localStorage.getItem("nome_listas") || "[]");
+    const listNames = JSON.parse(localStorage.getItem("minhas-listas") || "[]");
     const [, dispatch] = useContext(ListContext)
 
   return (
     <div className='container'>
         <h1>Minhas Listas</h1>
         <main className='lists-container'>
-        {(listas.length !== 0)
-          ? listas.map((lista) => (
-            <List key={lista.id} list={lista} value={5}></List>
+        {(listNames.length !== 0)
+          ? listNames.map((lista) => (
+            <List key={lista} list={lista} value={5}></List>
           ))
           : <p className="empty-message">Nenhuma lista criada</p> 
         }
