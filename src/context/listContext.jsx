@@ -7,9 +7,13 @@ const initialState = {
 }
 
 const listReducer = (state, action) => {
-    console.log("action:", action);
     
   switch(action.type) {
+    case "START":
+      return {
+        ...state,
+        AppStage: STAGES[0],
+      };
     case "CREATE-LIST":
       return {
         ...state,
