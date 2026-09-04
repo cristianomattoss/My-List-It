@@ -1,9 +1,13 @@
 .list-container {
   width: 400px;
-  padding: 18px 0px 0px;
+  padding-top: 15px;
   border-radius: 12px;
   background: linear-gradient(135deg, #6a00a8, #e83e8c);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.list-container.complete {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .header-list {
@@ -44,6 +48,10 @@
     margin-right: 18px;
 }
 
+.list-complete {
+  text-align: center;
+}
+
 .remove {
     background-color: #222;
     margin-top: 10px;
@@ -51,4 +59,6 @@
     text-align: center;
     padding: 7px;
     font-size: 12px;
+    border-end-start-radius: 12px;
+    border-end-end-radius: 12px;
 }

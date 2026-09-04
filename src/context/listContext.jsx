@@ -1,9 +1,10 @@
 import { createContext, useReducer } from "react";
 
-const STAGES = ["START", "CREATE-LIST"]
+const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"]
 
 const initialState = {
-    AppStage: STAGES[0]
+    AppStage: STAGES[0],
+    list: ""
 }
 
 const listReducer = (state, action) => {
@@ -19,6 +20,12 @@ const listReducer = (state, action) => {
         ...state,
         AppStage: STAGES[1],
       }
+    case "VIEW-LIST":
+    return {
+      ...state,
+      AppStage: STAGES[2],
+      list: action.list
+    };
     default:
       return state;
   }
