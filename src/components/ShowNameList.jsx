@@ -1,6 +1,10 @@
 import "./ShowNameList.css"
 
+import { useContext } from "react"
+import { ListContext } from "../context/listContext"
+
 const ShowNameList = ({listNames}) => {
+    const [, dispatch] = useContext(ListContext);
 
   return (
     <div className="container-all-name-lists">
@@ -8,7 +12,7 @@ const ShowNameList = ({listNames}) => {
             <div key={listName} className="container-list-name">
                 <div className="card-name">
                     <h2>{listName}</h2>
-                    <p>ver lista</p>
+                    <p onClick={() => dispatch({type: "VIEW-LIST", listName: listName})}>ver lista</p>
                 </div>
                 <button className="remove">Excluir</button>
             </div>

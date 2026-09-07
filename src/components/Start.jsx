@@ -8,8 +8,8 @@ import './Start.css'
 import { FaPlus } from "react-icons/fa";
 
 const Start = () => {
-    const listNames = JSON.parse(localStorage.getItem("minhas-listas") || "[]");
-    const [, dispatch] = useContext(ListContext)
+    const [state, dispatch] = useContext(ListContext)
+    const listNames = state.listNames
 
   return (
     <div className='container'>

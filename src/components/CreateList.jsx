@@ -7,7 +7,7 @@ import "./CreateList.css"
 import List from "./List";
 
 const CreateList = () => {
-    const [state, dispatch] = useContext(ListContext);
+    const [, dispatch] = useContext(ListContext);
 
     const [listName, setListName] = useState("");
     const [listNameProduct, setListNameProduct] = useState("");

@@ -10,7 +10,7 @@ const ListComplete = () => {
 
   return (
     <div className='container'>
-        <List list={state.list} value={0} />
+        <List list={state.listName}/>
         <button className="return-button" onClick={() => dispatch({ type: "START" })}>Retornar</button>
     </div>
   )

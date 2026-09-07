@@ -46,9 +46,9 @@
   background: #1f1f22;
   color: #a1a1aa;
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: color 0.2s ease;
 }
 
 .remove:hover {
-  color: #ef4444;
+  color: red !important;
 }

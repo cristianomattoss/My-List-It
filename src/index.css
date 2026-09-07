@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 body {
   font-family: Arial, sans-serif;
   background: #18181b;
-  color: #f4f4f5;
 }

@@ -2,7 +2,8 @@
   width: 400px;
   padding-top: 15px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #6a00a8, #e83e8c);
+  background: #27272a;
+  border: 1px solid #a855f7;
 }
 
 .list-container.complete {
@@ -10,31 +11,13 @@
   overflow-y: auto;
 }
 
-.header-list {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  gap: 10px;
-}
-
-.header-list p:first-child {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.header-list p:last-child {
-  white-space: nowrap;
-  font-size: 12px;
-}
-
 .product {
   display: flex;
   align-items: center;
   padding: 10px 12px;
-  margin-bottom: 6px;
+  margin: 0 18px 6px;
   border-radius: 7px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #f4f4f5;
 }
 
 .product span {
@@ -42,23 +25,26 @@
   font-size: 13px;
 }
 
-.header-list,
-.product {
-    margin-left: 18px;
-    margin-right: 18px;
-}
-
 .list-complete {
   text-align: center;
+  margin-bottom: 15px;
+  color: #a855f7;
 }
 
-.remove {
-    background-color: #222;
-    margin-top: 10px;
-    width: 100%;
-    text-align: center;
-    padding: 7px;
-    font-size: 12px;
-    border-end-start-radius: 12px;
-    border-end-end-radius: 12px;
+.remove-list {
+  background-color: #1f1f22;
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+  padding: 7px;
+  font-size: 12px;
+  color: #a1a1aa;
+  border: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  transition: color 0.2s ease;
+}
+
+.remove-list:hover {
+  color: #ef4444;
 }

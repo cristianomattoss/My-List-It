@@ -2,9 +2,13 @@ import { createContext, useReducer } from "react";
 
 const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"]
 
+const listNames = JSON.parse(localStorage.getItem("minhas-listas"))
+
 const initialState = {
     AppStage: STAGES[0],
-    list: ""
+    listNames: listNames,
+    listName: "",
+    productsList: "",
 }
 
 const listReducer = (state, action) => {
@@ -24,7 +28,8 @@ const listReducer = (state, action) => {
     return {
       ...state,
       AppStage: STAGES[2],
-      list: action.list
+      listName: action.listName,
+      productsList: JSON.parse(localStorage.getItem(action.listName) || "[]")
     };
     default:
       return state;
