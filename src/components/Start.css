@@ -8,9 +8,29 @@
   padding: 40px 20px;
 }
 
-h1 {
+.container-header {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-header h1 {
+  font-size: 20px;
   padding-top: 20px;
   margin-bottom: 30px;
+}
+
+.start-list {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #a855f7;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  gap: 5px;
 }
 
 .lists-container {
@@ -25,15 +45,4 @@ h1 {
   padding: 30px;
   text-align: center;
   border-radius: 8px;
-}
-
-.start-list {
-  margin: 25px auto;
-  padding: 12px 20px;
-  max-width: 150px;
-  border: none;
-  border-radius: 8px;
-  background: #222;
-  color: white;
-  cursor: pointer;
 }

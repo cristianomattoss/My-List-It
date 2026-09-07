@@ -1,9 +1,11 @@
-import List from './List';
+import ShowNameList from './ShowNameList';
 
 import { useContext } from 'react';
 import { ListContext } from '../context/listContext';
 
 import './Start.css'
+
+import { FaPlus } from "react-icons/fa";
 
 const Start = () => {
     const listNames = JSON.parse(localStorage.getItem("minhas-listas") || "[]");
@@ -11,16 +13,16 @@ const Start = () => {
 
   return (
     <div className='container'>
-        <h1>Minhas Listas</h1>
-        <main className='lists-container'>
-        {(listNames.length !== 0)
-          ? listNames.map((lista) => (
-            <List key={lista} list={lista} value={5}></List>
-          ))
-          : <p className="empty-message">Nenhuma lista criada</p> 
-        }
-      </main>
-      <button className='start-list' onClick={() => dispatch({type: "CREATE-LIST"})}>Criar nova lista</button>
+        <div className="container-header">
+          <h1>Minhas Listas</h1>
+          <button className='start-list' onClick={() => dispatch({type: "CREATE-LIST"})}><FaPlus/> Criar nova lista</button>
+        </div>
+        <main className="lists-container">
+          {listNames.length !== 0
+            ? <ShowNameList listNames={listNames} />
+            : <p className="empty-message">Nenhuma lista criada</p>
+          }
+        </main>
     </div>
   )
 }
