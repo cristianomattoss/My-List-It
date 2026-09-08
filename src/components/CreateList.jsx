@@ -43,26 +43,68 @@ const CreateList = () => {
 
   return (
     <div className="create-list">
-      <label htmlFor="nome-lista">Nome da lista:</label>
-      <div className="create-name">
-        <input type="text" name="nome-lista" id="nome-lista" placeholder="Defina o nome de sua lista" value={listName} 
-          onChange={(e) => changeListName(e)}
-          disabled={listCreated}
-        />
-        <button className="adicionar" onClick={() => insertName()} disabled={listCreated}><FaPlus/></button>
+      <div className="text-apresentation">
+        <h1>Criar nova lista</h1>
+        <p>Organize suas compras de forma simples e rápida.</p>
       </div>
-      <label htmlFor="nome-produto">Produto:</label>
-      <div className="create-name">
-        <input type="text" name="nome-produto" id="nome-produto" placeholder="Defina o nome do produto a ser inserido" 
-          value={listNameProduct}
-          onChange={(e) => changeProductName(e)}
-        />
-        <button className="adicionar" onClick={() => addProduct()}><FaPlus/></button>
+
+      <div className="create-list-content">
+        {/* Forms */}
+        <div className="form-section">
+          <div className="list-name-section">
+            <div className="section-description">
+              <p htmlFor="name-list">Nome da lista</p>
+              <p>Dê um nome para a sua lista.</p>
+            </div>
+            <div className="input-group">
+              <input type="text" name="name-list" id="name-list" placeholder="Defina o nome de sua lista" value={listName} 
+                onChange={(e) => changeListName(e)}
+                disabled={listCreated}
+              />
+            </div>
+          </div>
+          <div className="product-section">
+            <div className="section-description">
+              <p htmlFor="name-product">Adicionar produtos</p>
+              <p>Digite o nome do produto e adicione à sua lista.</p>
+            </div>
+            <div className="input-group">
+              <input type="text" name="name-product" id="name-product" placeholder="Defina o nome do produto a ser inserido" 
+                value={listNameProduct}
+                onChange={(e) => changeProductName(e)}
+              />
+              <button className="add-button" onClick={() => addProduct()}><FaPlus/></button>
+            </div>
+          </div>
+          <p>Adicione pelo menos um produto e adicione à sua lista</p>
+        </div>
+        <div className="list-preview">
+          <div className="preview-header">
+            <h2>Sua lista</h2>
+            <p>Confira os itens adicionados à sua lista.</p>
+          </div>
+
+          <div className="preview-info">
+            <span>Quantidade de itens</span>
+            <strong>{listProducts.length}</strong>
+          </div>
+
+          <List
+            list={listName}
+          />
+
+          <div className="preview-actions">
+            <button
+              className="finish-button"
+              onClick={() => dispatch({ type: "START" })}
+            >
+              Concluir lista
+            </button>
+          </div>
+
+        </div>
       </div>
-      <div className="container-create-list">
-        {listCreated && <List list={listName} value={0} />}
-      </div>
-      {listCreated && <button className="finish-button" onClick={() => dispatch({ type: "START" })}>Concluir</button>}
+      
     </div>
   )
 }

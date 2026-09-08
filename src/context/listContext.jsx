@@ -8,7 +8,7 @@ const initialState = {
     AppStage: STAGES[0],
     listNames: listNames,
     listName: "",
-    productsList: "",
+    productsList: [],
 }
 
 const listReducer = (state, action) => {
