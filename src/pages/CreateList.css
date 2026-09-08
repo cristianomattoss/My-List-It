@@ -113,13 +113,19 @@
   background: #27272a;
 }
 
+/* Cabeçalho do preview */
+
 .preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
 .preview-header h2 {
+  margin-bottom: 6px;
   color: #f4f4f5;
-  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .preview-header p {
@@ -127,35 +133,105 @@
   font-size: 13px;
 }
 
-.preview-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  color: #a1a1aa;
-  font-size: 13px;
+/* Quantidade de itens */
+
+.item-count {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #18181b;
+  color: #a855f7;
+  font-size: 12px;
 }
 
-.preview-info strong {
-  color: #a855f7;
-  font-size: 18px;
+/* Cabeçalho da lista */
+
+.preview-list-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #3f3f46;
+  border-radius: 8px 8px 0 0;
+
+  background: #18181b;
 }
+
+.preview-list-header svg {
+  color: #a855f7;
+}
+
+.preview-list-header h3 {
+  color: #f4f4f5;
+  font-size: 14px;
+}
+
+/* Área onde o List será renderizado */
+
+.preview-products {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #3f3f46;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 10px;
+}
+
+.preview-products::-webkit-scrollbar {
+  width: 5px;
+}
+
+.preview-products::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.preview-products::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 10px;
+}
+
+.preview-products::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+/* Botão concluir e cancelar */
 
 .preview-actions {
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.finish-button {
+  flex: 1;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-top: 15px;
+
+  font-size: 13px;
+}
+
+.cancel-button {
+  background: #3f3f46;
+  color: #a1a1aa;
+}
+
+.cancel-button:hover {
+  background: #52525b;
+  color: #f4f4f5;
 }
 
 .finish-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
   background: #a855f7;
-  color: white;
+  color: #fff;
 }
 
 .finish-button:hover {

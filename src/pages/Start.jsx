@@ -1,4 +1,4 @@
-import ShowNameList from './ShowNameList';
+import ShowNameList from '../components/ShowNameList';
 
 import { useContext } from 'react';
 import { ListContext } from '../context/listContext';

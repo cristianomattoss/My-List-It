@@ -3,9 +3,9 @@ import './App.css'
 
 import { ListContext } from './context/listContext';
 
-import CreateList from './components/CreateList';
-import Start from './components/Start';
-import ListComplete from './components/ListComplete';
+import CreateList from './pages/CreateList';
+import Start from './pages/Start';
+import ListComplete from './pages/ListComplete';
 
 function App() {
   const [state] = useContext(ListContext)

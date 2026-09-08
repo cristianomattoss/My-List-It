@@ -1,50 +1,62 @@
 .list-container {
-  width: 350px;
-  padding-top: 15px;
-  border-radius: 12px;
-  background: #27272a;
-  border: 1px solid #a855f7;
+  width: 100%;
 }
 
 .list-container.complete {
-  max-height: 80vh;
+  max-height: 70vh;
   overflow-y: auto;
 }
 
 .product {
   display: flex;
   align-items: center;
-  padding: 10px 12px;
-  margin: 0 18px 6px;
+  gap: 10px;
+
+  padding: 10px;
+  margin-bottom: 6px;
+
+  border: 1px solid #3f3f46;
   border-radius: 7px;
-  background: #f4f4f5;
+
+  background: #27272a;
 }
 
-.product span {
-  color: #222;
+.product:last-child {
+  margin-bottom: 0;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+
+  border: 1px solid #71717a;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.product-name {
+  flex: 1;
+  color: #f4f4f5;
   font-size: 13px;
 }
 
-.list-complete {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #a855f7;
-}
+.delete-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.remove-list {
-  background-color: #1f1f22;
-  margin-top: 10px;
-  width: 100%;
-  text-align: center;
-  padding: 7px;
-  font-size: 12px;
-  color: #a1a1aa;
+  padding: 4px;
+
   border: none;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  background: transparent;
+
+  color: #71717a;
+  cursor: pointer;
   transition: color 0.2s ease;
 }
 
-.remove-list:hover {
+.delete-product:hover {
   color: #ef4444;
 }

@@ -3,7 +3,7 @@ import { ListContext } from "../context/listContext";
 
 import "./ListComplete.css"
 
-import List from "./List";
+import List from "../components/List";
 
 const ListComplete = () => {
     const [state, dispatch] = useContext(ListContext);

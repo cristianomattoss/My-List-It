@@ -3,20 +3,26 @@ import "./List.css";
 import { useContext } from "react";
 import { ListContext } from "../context/listContext";
 
-const List = ({list}) => {
-  const [state] = useContext(ListContext)
+import { FaTrash } from "react-icons/fa";
+
+const List = ({ products, complete = false }) => {
+  const [state] = useContext(ListContext);
+
+  const productsToShow = products ?? state.productsList;
 
   return (
-    <div className="list-container">
-      <h1 className="list-complete">{list}</h1>
-      {state.productsList.map((product) => (
+    <div className={`list-container ${complete ? "complete" : ""}`}>
+      {productsToShow.map((product) => (
         <div className="product" key={product.id}>
-          <span>{product.name}</span>
+          <span className="checkbox"></span>
+          <span className="product-name">{product.name}</span>
+          <button className="delete-product">
+            <FaTrash />
+          </button>
         </div>
       ))}
-      <p className="remove-list">Excluir</p>
     </div>
-  )
-}
+  );
+};
 
-export default List
+export default List;

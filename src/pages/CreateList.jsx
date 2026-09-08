@@ -1,17 +1,16 @@
 import { useState, useContext } from "react"
 import { ListContext } from "../context/listContext"
-import { FaPlus, FaTrash } from "react-icons/fa";
+import { FaListUl, FaCheck, FaPlus } from "react-icons/fa";
 
 import "./CreateList.css"
 
-import List from "./List";
+import List from "../components/List";
 
 const CreateList = () => {
-    const [, dispatch] = useContext(ListContext);
+    const [state, dispatch] = useContext(ListContext);
 
     const [listName, setListName] = useState("");
-    const [listNameProduct, setListNameProduct] = useState("");
-    const [listCreated, setListCreated] = useState(false);
+    const [nameProduct, setNameProduct] = useState("");
     const [listProducts, setListProducts] = useState([]);
 
     const changeListName = (e) => {
@@ -19,26 +18,22 @@ const CreateList = () => {
     };
 
     const changeProductName = (e) => {
-      setListNameProduct(e.target.value);
+      setNameProduct(e.target.value);
     };
 
-    const insertName = () => {
-      const nomeDasListas = JSON.parse(localStorage.getItem("minhas-listas") || "[]")
-      const novoNomeDasListas = [...nomeDasListas, listName]
-      localStorage.setItem("minhas-listas", JSON.stringify(novoNomeDasListas))
-      setListCreated(true);
-    }
-
     const addProduct = () => {
-      const lista = JSON.parse(localStorage.getItem(listName) || "[]")
-      const novoProduto = {
-        id: lista.length,
-        name: listNameProduct
-      }
-      const novaLista = [...lista, novoProduto]
-      localStorage.setItem(listName, JSON.stringify(novaLista))
-      setListProducts(novaLista)
-      setListNameProduct("")
+      const newProduto = {
+        id: listProducts.length,
+        name: nameProduct,
+        checked: false
+      };
+
+      setListProducts([...listProducts, newProduto]);
+      setNameProduct("");
+    };
+
+    function finishList() {
+
     }
 
   return (
@@ -59,7 +54,6 @@ const CreateList = () => {
             <div className="input-group">
               <input type="text" name="name-list" id="name-list" placeholder="Defina o nome de sua lista" value={listName} 
                 onChange={(e) => changeListName(e)}
-                disabled={listCreated}
               />
             </div>
           </div>
@@ -70,7 +64,7 @@ const CreateList = () => {
             </div>
             <div className="input-group">
               <input type="text" name="name-product" id="name-product" placeholder="Defina o nome do produto a ser inserido" 
-                value={listNameProduct}
+                value={nameProduct}
                 onChange={(e) => changeProductName(e)}
               />
               <button className="add-button" onClick={() => addProduct()}><FaPlus/></button>
@@ -80,24 +74,42 @@ const CreateList = () => {
         </div>
         <div className="list-preview">
           <div className="preview-header">
-            <h2>Sua lista</h2>
-            <p>Confira os itens adicionados à sua lista.</p>
+            <div>
+              <h2>Sua lista</h2>
+              <p>Confira os produtos adicionados.</p>
+            </div>
+
+            <span className="item-count">
+              {listProducts.length} itens
+            </span>
           </div>
 
-          <div className="preview-info">
-            <span>Quantidade de itens</span>
-            <strong>{listProducts.length}</strong>
-          </div>
+          <div className="preview-list">
 
-          <List
-            list={listName}
-          />
+            <div className="preview-list-header">
+              <FaListUl />
+              <h3>{listName}</h3>
+            </div>
+
+            <div className="preview-products">
+              <List products={listProducts} />
+            </div>
+
+          </div>
 
           <div className="preview-actions">
             <button
-              className="finish-button"
+              className="cancel-button"
               onClick={() => dispatch({ type: "START" })}
             >
+              Cancelar
+            </button>
+
+            <button
+              className="finish-button"
+              onClick={finishList}
+            >
+              <FaCheck />
               Concluir lista
             </button>
           </div>
