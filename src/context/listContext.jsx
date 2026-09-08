@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 
-const STAGES = ["START", "CREATE-LIST", "SET-LIST-NAME", "VIEW-LIST"]
+const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"]
 
 const listNames = JSON.parse(localStorage.getItem("minhas-listas"))
 
@@ -26,11 +26,12 @@ const listReducer = (state, action) => {
         listName: "",
         productsList: [],
       }
-    case "SET-LIST-NAME":
-      return {
-        ...state,
-        listName: action.listName,
-      };
+    case "FINISH-LIST":
+    return {
+      ...state,
+      AppStage: STAGES[0],
+      listNames: action.updatedLists,
+    };
     case "VIEW-LIST":
     return {
       ...state,

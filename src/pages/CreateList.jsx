@@ -33,7 +33,12 @@ const CreateList = () => {
     };
 
     function finishList() {
+      const updatedLists = [...state.listNames, listName];
 
+      localStorage.setItem("minhas-listas", JSON.stringify(updatedLists));
+      localStorage.setItem(listName, JSON.stringify(listProducts));
+
+      dispatch({ type: "FINISH-LIST", updatedLists });
     }
 
   return (
@@ -92,7 +97,7 @@ const CreateList = () => {
             </div>
 
             <div className="preview-products">
-              <List products={listProducts} />
+              <List products={listProducts} setProducts={setListProducts}/>
             </div>
 
           </div>

@@ -36,6 +36,13 @@
   cursor: pointer;
 }
 
+.product input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #a855f7;
+  cursor: pointer;
+}
+
 .product-name {
   flex: 1;
   color: #f4f4f5;
