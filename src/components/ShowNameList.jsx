@@ -14,7 +14,7 @@ const ShowNameList = ({listNames}) => {
                     <h2>{listName}</h2>
                     <p onClick={() => dispatch({type: "VIEW-LIST", listName: listName})}>ver lista</p>
                 </div>
-                <button className="remove">Excluir</button>
+                <button className="remove" onClick={() => dispatch({type: "DELETE-LIST", listName})}>Excluir</button>
             </div>
         ))}
     </div>

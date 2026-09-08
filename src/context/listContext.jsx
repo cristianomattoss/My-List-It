@@ -26,6 +26,15 @@ const listReducer = (state, action) => {
         listName: "",
         productsList: [],
       }
+    case "DELETE-LIST":
+      const updatedLists = state.listNames.filter((listName) => listName !== action.listName);
+      localStorage.setItem("minhas-listas",JSON.stringify(updatedLists))
+      localStorage.removeItem(action.listName);
+
+      return {
+        ...state,
+        listNames: updatedLists,
+      };
     case "FINISH-LIST":
     return {
       ...state,
