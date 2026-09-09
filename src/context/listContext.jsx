@@ -18,6 +18,8 @@ const listReducer = (state, action) => {
       return {
         ...state,
         AppStage: STAGES[0],
+        listName: "",
+        productsList: [],
       };
     case "CREATE-LIST":
       return {

@@ -1,10 +1,51 @@
+.container {
+  text-align: center;
+}
+
+.complete-header {
+  max-width: 400px;
+  margin-bottom: 25px;
+}
+
+.complete-header h1 {
+  color: #a855f7;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.complete-header p {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
+.list {
+  width: 100%;
+  max-width: 400px;
+}
+
 .return-button {
+  width: 100%;
+  max-width: 400px;
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   border: none;
-  width: 400px;
   border-radius: 8px;
-  background: #222;
-  color: white;
+
+  background: #27272a;
+  color: #f4f4f5;
+
+  font-size: 13px;
   cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.return-button:hover {
+  background: #3f3f46;
 }
