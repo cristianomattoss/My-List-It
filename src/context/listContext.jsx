@@ -1,19 +1,18 @@
 import { createContext, useReducer } from "react";
 
-const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"]
+const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"];
 
-const listNames = JSON.parse(localStorage.getItem("minhas-listas"))
+const listNames = JSON.parse(localStorage.getItem("minhas-listas"));
 
 const initialState = {
-    AppStage: STAGES[0],
-    listNames: listNames,
-    listName: "",
-    productsList: [],
-}
+  AppStage: STAGES[0],
+  listNames: listNames,
+  listName: "",
+  productsList: [],
+};
 
 const listReducer = (state, action) => {
-    
-  switch(action.type) {
+  switch (action.type) {
     case "START":
       return {
         ...state,
@@ -27,10 +26,12 @@ const listReducer = (state, action) => {
         AppStage: STAGES[1],
         listName: "",
         productsList: [],
-      }
+      };
     case "DELETE-LIST":
-      const updatedLists = state.listNames.filter((listName) => listName !== action.listName);
-      localStorage.setItem("minhas-listas",JSON.stringify(updatedLists))
+      const updatedLists = state.listNames.filter(
+        (listName) => listName !== action.listName,
+      );
+      localStorage.setItem("minhas-listas", JSON.stringify(updatedLists));
       localStorage.removeItem(action.listName);
 
       return {
@@ -38,18 +39,24 @@ const listReducer = (state, action) => {
         listNames: updatedLists,
       };
     case "FINISH-LIST":
-    return {
-      ...state,
-      AppStage: STAGES[0],
-      listNames: action.updatedLists,
-    };
+      return {
+        ...state,
+        AppStage: STAGES[0],
+        listNames: action.updatedLists,
+      };
     case "VIEW-LIST":
-    return {
-      ...state,
-      AppStage: STAGES[STAGES.length - 1],
-      listName: action.listName,
-      productsList: JSON.parse(localStorage.getItem(action.listName) || "[]")
-    };
+      return {
+        ...state,
+        AppStage: STAGES[2],
+        listName: action.listName,
+        productsList: JSON.parse(localStorage.getItem(action.listName) || "[]"),
+      };
+    case "ADD-PRODUCT":
+      return {
+        ...state,
+        AppStage: STAGES[1],
+        productsList: JSON.parse(localStorage.getItem(action.listName) || "[]"),
+      };
     default:
       return state;
   }
