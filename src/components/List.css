@@ -43,8 +43,14 @@
   cursor: pointer;
 }
 
+.product:has(input[type="checkbox"]:checked) .product-name {
+  color: #a855f7;
+  text-decoration: line-through;
+}
+
 .product-name {
   flex: 1;
+  text-align: left;
   color: #f4f4f5;
   font-size: 13px;
 }
