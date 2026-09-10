@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 
 const STAGES = ["START", "CREATE-LIST", "VIEW-LIST"];
 
-const listNames = JSON.parse(localStorage.getItem("minhas-listas"));
+const listNames = JSON.parse(localStorage.getItem("minhas-listas") || "[]");
 
 const initialState = {
   AppStage: STAGES[0],
