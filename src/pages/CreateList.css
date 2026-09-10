@@ -23,11 +23,13 @@
   align-items: flex-start;
   justify-content: center;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 /* Formulário */
 .form-section {
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   padding: 25px;
   border: 1px solid #3f3f46;
   border-radius: 12px;
@@ -106,7 +108,8 @@
 
 /* Preview */
 .list-preview {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   padding: 25px;
   border: 1px solid #3f3f46;
   border-radius: 12px;
@@ -201,6 +204,7 @@
   display: flex;
   gap: 10px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .cancel-button,
